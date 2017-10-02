@@ -13,7 +13,9 @@ pipeline{
   }
   stages{
     stage('checkout'){
-      commit_id = checkout(scm).GIT_COMMIT
+      steps{
+        commit_id = checkout(scm).GIT_COMMIT
+      }
     }
 
     stage('build application'){
