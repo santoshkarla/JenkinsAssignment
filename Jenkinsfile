@@ -13,7 +13,11 @@ pipeline{
   stages{
     stage('checkout'){
       steps{
-        def commit_id = checkout(scm).GIT_COMMIT
+        checkout scm
+        script {
+          commit_id = checkout(scm).GIT_COMMIT
+          echo "Commit id = ${commit_id}"
+        }
       }
     }
 
