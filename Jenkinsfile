@@ -1,7 +1,6 @@
 pipeline{
   agent any
   options {
-    deleteDir()
     timestamps()
     buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '10', daysToKeepStr:'5', numToKeepStr: '10'))
     skipDefaultCheckout()
@@ -9,12 +8,12 @@ pipeline{
   }
   tools {
     maven 'maven-3.5.0'
-    java 'jdk_1.8_44'
+    jdk 'jdk_1.8_44'
   }
   stages{
     stage('checkout'){
       steps{
-        commit_id = checkout(scm).GIT_COMMIT
+        def commit_id = checkout(scm).GIT_COMMIT
       }
     }
 
