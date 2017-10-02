@@ -29,7 +29,7 @@ pipeline{
   }
   post{
     always{
-        emailext body: 'Jenkins Assignment build # ${env.BUILD_NUMBER} is ${currentBuild.currentResult}', subject: 'Jenkins Asssignment build # ${env.BUILD_NUMBER}', to: 'santosh.karla@reancloud.com'
+        emailext body: 'Jenkins Assignment build # ${BUILD_NUMBER} is ${currentBuild.currentResult}', subject: 'Jenkins Asssignment build # ${BUILD_NUMBER}', to: 'santosh.karla@reancloud.com'
     }
 
   }
