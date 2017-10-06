@@ -24,7 +24,7 @@ pipeline{
     stage('build application'){
       steps{
         sh "mvn clean install"
-        archiveArtifacts artifacts: '*.war', onlyIfSuccessful: true
+        archiveArtifacts artifacts: 'target/*.war', onlyIfSuccessful: true
       }
     }
   }
